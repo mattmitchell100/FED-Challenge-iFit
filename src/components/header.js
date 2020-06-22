@@ -1,15 +1,11 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
-import { Helmet } from "react-helmet"
 import logo from '../images/logos/ifit-coach-logo.svg'; 
 
 
 const Header = ({ siteTitle }) => (
   <header id="header">
-    <Helmet>
-      <script src="http://localhost:8000/src/components/display.js" type="text/javascript" />
-    </Helmet>
     <div className="secondary-nav flex">
       <nav>
         <ul>
