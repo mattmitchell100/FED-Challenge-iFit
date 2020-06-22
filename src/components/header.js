@@ -1,11 +1,16 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
+import { Helmet } from "react-helmet"
 import logo from '../images/logos/ifit-coach-logo.svg'; 
 
+
 const Header = ({ siteTitle }) => (
-  <header>
-    <div class="secondary-nav flex">
+  <header id="header">
+    <Helmet>
+      <script src="http://localhost:8000/src/components/display.js" type="text/javascript" />
+    </Helmet>
+    <div className="secondary-nav flex">
       <nav>
         <ul>
           <li><a href="#">Blog</a></li>
@@ -14,9 +19,9 @@ const Header = ({ siteTitle }) => (
         </ul>
       </nav>
     </div>
-    <div class="primary-nav flex">
+    <div className="primary-nav flex">
         <Link to="/">
-          <img src={logo} class="logo" alt="iFIT Coach logo" />
+          <img src={logo} className="logo" alt="iFIT Coach logo" />
         </Link>
         <nav>
           <ul>
@@ -26,7 +31,7 @@ const Header = ({ siteTitle }) => (
             <li><a href="#">Sleep</a></li>
           </ul>
         </nav>
-        <a href="#" class="button">Sign Up</a>
+        <a href="#" className="button">Sign Up</a>
     </div>
   </header>
 )

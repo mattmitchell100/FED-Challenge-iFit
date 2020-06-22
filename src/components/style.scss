@@ -7,6 +7,8 @@ $med-gray: #CCCCCC;
 $light-gray: #EEEEEE;
 $footer-border: #979797;
 
+$iFit-shadow: 0 1px 2px rgba(46, 49, 52, 0.4);
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -92,7 +94,7 @@ a:hover {
 	border: 1px solid #FFF;
 }
 .custom-select:focus {
-	box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
+	box-shadow: $iFit-shadow;
 	box-shadow: 0 0 0 3px -moz-mac-focusring;
 	color: #FFF;
 	outline: none;
@@ -103,6 +105,8 @@ a:hover {
 
 header {
   padding: 2em;
+  background: #FFF;
+  z-index: 1;
   nav {
     text-transform: uppercase;
     ul {
@@ -150,6 +154,10 @@ header {
         }
       }
     }
+  }
+  &.sticky {
+    position: sticky;
+    top: 0;
   }
 }
 
@@ -246,10 +254,10 @@ footer {
   .flex {
     justify-content: center;
     text-align: center;
-    box-shadow: 0 1px 2px rgba(46, 49, 52, 0.4);
+    box-shadow: $iFit-shadow;
     max-width: 440px;
     width: 100%;
-    min-height: 184px;
+    height: 184px;
     padding: 3.5em;
     background: #FFF;
     q {
@@ -284,7 +292,7 @@ footer {
     max-width: 330px;
     width: 100%;
     height: 330px;
-    box-shadow: 0 1px 2px rgba(46, 49, 52, 0.4);
+    box-shadow: $iFit-shadow;
     text-align: center;
     margin: 1em;
     h3 {
@@ -293,6 +301,147 @@ footer {
     }
     img {
       height: 228px;
+    }
+  }
+}
+
+.courses.flex {
+  max-width: 1224px;
+  margin: 3em auto;
+  justify-content: space-evenly;
+  .course {
+    width: 288px;
+    min-height: 300px;
+    box-shadow: $iFit-shadow;
+    margin: 1em 1em 0 0;
+    .details {
+      padding: 1em;
+      .flex {
+        margin-bottom: .5em;
+        flex-wrap: nowrap;
+        align-items: flex-start;
+      }
+      a {
+        display: block;
+        text-transform: uppercase;
+        opacity: 0;
+      }
+      span {
+        font-weight: bold;
+        font-size: .8em;
+        display: inline-block;
+        margin: 0 1em 1em 0;
+      }
+    }
+  }
+  .course:hover {
+    box-shadow: 0 7px 12px rgba(46, 49, 52, 0.3);
+    transition: all 0.5s ease-in-out;
+    a {
+      opacity: 1;
+      transition: all 0.5s ease-in-out;
+    }
+  }
+  .overlay {
+    position: relative;
+    .overlay-content.flex {
+      position: absolute;
+      top: 0;
+      right: 0;
+      text-align: center;
+      flex-direction: column;
+      width: 112px;
+      height: 164px;
+      justify-content: center;
+      background: rgba(0, 12, 40, 0.54);
+      span {
+        display: block;
+        color: #FFF;
+        text-transform: uppercase;
+        font-weight: bold;
+        &.workout-number {
+          font-size: 2em;
+        }
+      }
+      img {
+        margin-top: 1em;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .reviews.flex {
+    justify-content: center;
+    flex-wrap: wrap;
+    .empty.flex {
+      display: none;
+    }
+  }
+  
+  .hero.flex {
+    .tagline {
+      h1 {
+        font-size: 2.5em;
+      }
+      .button {
+        padding: 1.25em 5em;
+        box-shadow: 1px 1px 6px #333;
+        margin-top: 2.5em;
+      }
+    }
+  }
+  
+  header {
+    .primary-nav {
+      ul {
+        li {
+          a {
+            padding: 1em 1em 1em 0;
+          }
+        }
+      }
+    }
+    .secondary-nav {
+      ul {
+        li {
+          a {
+            padding: 1em;
+            border-right: 1px solid $border-color;
+            font-weight: bold;
+          }
+          a:hover {
+            background: $dark-gray;
+            color: #FFF;
+            
+          }
+        }
+      }
+    }
+  }
+  
+  .courses.flex {
+    .course {
+      .details {
+        a {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+footer {
+  .copyright.flex {
+    flex-direction: column;
+    justify-content: flex-start;
+    position: relative;
+    padding: 2em;
+    select {
+      position: static;
+    }
+    p {
+      margin: 1.5em;
     }
   }
 }
